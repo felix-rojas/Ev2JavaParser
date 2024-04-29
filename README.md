@@ -1,3 +1,30 @@
+# Java parser using LL(1) grammars
+
+## Restrictions
+
+This parser can only process:
+- Main declaration
+- Scopes within scopes
+- Arithmetic expressions
+- Parenthesized expressions
+- Expression comparisons
+- Numeric and String-like variable assignments
+- String assignments for any character that can be a variable name 'ID'
+
+This parser will *not* detect semantic errors such as:
+- Wrong Type comparisons
+    - Expressions, comparative expressions
+
+## Complexity
+
+### Tokenizer
+
+The complexity in time is $ O(n) $ from the technicality that the token specification is constantly defined, though the worst case is definitely in case the value belongs in the reserved keywords. It should be at least *somewhat amortized* since it is an access by key-pair in a dictionary, and is implemented in a hashmap, it should be $ O(n) $ assuming the hash is bad, but average *should be* $ O(1) $
+
+### Parser
+
+Now, the parser is another story. *Assuming* it uses a PDA implementation, it should be $O(n)$ where $n$ is the length of the text to parse since the grammar is an LL(1) type.
+
 ## Grammar for algebraic expressions
 
 ### EBNF
