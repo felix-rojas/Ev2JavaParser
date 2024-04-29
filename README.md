@@ -15,6 +15,36 @@ This parser will *not* detect semantic errors such as:
 - Wrong Type comparisons
     - Expressions, comparative expressions
 
+Just like in Java, any of these things NEED to be inside a main scope, this is a valid minimum statement for java to process:
+```Java
+public static void main () { Scope } 
+```
+The Scope can be as small as a single empty statement as `;` or several statements with their own scope:
+
+```Java
+public static void main ( ) { ; { ; { ; } } }
+```
+
+We can also have expressions as the one below, regardless of the type that 'id' might be. We will ignore this because this is a grammar parser, not a semantic parser.
+
+```Java
+public static void main ( ) { 28 + 28 * ( 28 - 28 / 28 ) + 28 ^ id - ( id + 28 ) ; }
+```
+
+We can also have expressions where the assignment is an expression or an expression surrounded by parentheses. The parser will check for numeric assignments to make sense (numeric type) and for string types, it will look for double quotes to delimit the value to assign to the string. In this case, anything that the tokenizer accepts as an identifier `ID` will be valid as an input for these.
+
+```Java
+public static void main ( ) { 
+    float id = 2.8 ; 
+    { 
+        String id = " character adn others " ; 
+        int id = 2 + id ; 
+        8 != id ; 
+        ( id >= id ) ; 
+    } 
+}
+```
+
 ## Complexity
 
 ### Tokenizer
