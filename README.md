@@ -19,7 +19,7 @@ This parser will *not* detect semantic errors such as:
 
 ### Tokenizer
 
-The complexity in time is $ O(n) $ from the technicality that the token specification is constantly defined, though the worst case is definitely in case the value belongs in the reserved keywords. It should be at least *somewhat amortized* since it is an access by key-pair in a dictionary, and is implemented in a hashmap, it should be $ O(n) $ assuming the hash is bad, but average *should be* $ O(1) $
+The complexity in time is $O(n)$ from the technicality that the token specification is constantly defined, though the worst case is definitely in case the value belongs in the reserved keywords. It should be at least *somewhat amortized* since it is an access by key-pair in a dictionary, and is implemented in a hashmap, it should be $O(n)$ assuming the hash is bad, but average *should be* $O(1)$
 
 ### Parser
 
